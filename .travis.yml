@@ -8,4 +8,4 @@ after_success:
   notifications:
   email:
     recipients:
-      - temilolakutelu"gmail.com
+      - temilolakutelu@gmail.com
