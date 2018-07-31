@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - "10.5.0"
+services:
+  - mongodb
+after_success:
+  - npm run coverage
