@@ -38,7 +38,7 @@ describe('CRUD for users', function () {
             .get('/users')
             .end(function (err, res) {
                 console.log(res.body)
-                expect(res.body.length).to.be.greaterThan(1)
+                expect(res.body.length).to.be.greaterThan(0)
                 done();
             });
     });
