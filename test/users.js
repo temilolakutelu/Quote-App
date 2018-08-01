@@ -18,7 +18,7 @@ describe('CRUD for users', function () {
             })
             .end(function (err, res) {
                 id = res.body._id;
-                console.log(res.body)
+
                 expect(res.body).to.have.property('_id');
                 done();
             });
@@ -37,7 +37,7 @@ describe('CRUD for users', function () {
         chai.request('http://localhost:3000')
             .get('/users')
             .end(function (err, res) {
-                console.log(res.body)
+
                 expect(res.body.length).to.be.greaterThan(0)
                 done();
             });
@@ -51,7 +51,7 @@ describe('CRUD for users', function () {
                 name: "Monkey tail"
             })
             .end(function (err, res) {
-                console.log(res.body)
+
                 expect(res.body.name).to.be.equal('Monkey tail');
                 done();
             });
