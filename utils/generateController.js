@@ -9,6 +9,7 @@ module.exports = function (model) {
         },
         createOne: function (req, res, next) {
             var body = req.body;
+            console.log(body);
             model.create(body, function (err, doc) {
                 if (err) next(err);
                 res.send(doc);

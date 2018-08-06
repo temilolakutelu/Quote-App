@@ -18,7 +18,7 @@ describe('CRUD for users', function () {
             })
             .end(function (err, res) {
                 id = res.body._id;
-
+                console.log(res.body);
                 expect(res.body).to.have.property('_id');
                 done();
             });
