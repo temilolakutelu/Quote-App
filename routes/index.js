@@ -1,6 +1,6 @@
 var express = require('express')
-var quotes = require('../routes/quotes');
-var users = require('../routes/users');
+var quotes = require('./quotes');
+var users = require('./users');
 
 var mainRouter = express.Router();
 

@@ -2,14 +2,14 @@ var chai = require('chai');
 var chaiHttp = require('chai-http');
 var should = chai.should();
 var expect = chai.expect;
-
+var app = require('../app');
 chai.use(chaiHttp);
 
 describe('CRUD for users', function () {
     var id = "";
 
     it('Create new user', function (done) {
-        chai.request('http://localhost:3000')
+        chai.request(app)
             .post('/users')
             .send({
                 name: "Larry Boo",
@@ -25,7 +25,7 @@ describe('CRUD for users', function () {
     });
 
     it('Get One User', function (done) {
-        chai.request('http://localhost:3000')
+        chai.request(app)
             .get('/users/' + id)
             .end(function (err, res) {
                 expect(res.body[0].name).to.be.equal('Larry Boo');
@@ -34,7 +34,7 @@ describe('CRUD for users', function () {
     });
 
     it('Get All Users', function (done) {
-        chai.request('http://localhost:3000')
+        chai.request(app)
             .get('/users')
             .end(function (err, res) {
 
@@ -45,7 +45,7 @@ describe('CRUD for users', function () {
 
 
     it('Update One User', function (done) {
-        chai.request('http://localhost:3000')
+        chai.request(app)
             .put('/users/' + id)
             .send({
                 name: "Monkey tail"
@@ -58,7 +58,7 @@ describe('CRUD for users', function () {
     });
 
     it('Delete One User', function (done) {
-        chai.request('http://localhost:3000')
+        chai.request(app)
             .delete('/users/' + id)
             .end(function (err, res) {
                 expect(res.status).to.be.equal(200);

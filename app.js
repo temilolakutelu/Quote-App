@@ -16,9 +16,9 @@ middleware(app);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use('/', indexRouter);
+app.use('/quotes', QuotesRouter);
 app.use('/users', userRouter);
-app.use('/catalog', QuotesRouter);
+// app.use('/catalog', QuotesRouter);
 
 
 app.use(function (req, res, next) {
