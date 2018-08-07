@@ -3,14 +3,13 @@ var app = express();
 var db = require('./db');
 var middleware = require('./middleware');
 var path = require('path');
-var createError = require('http-errors');
+
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/users');
 var QuotesRouter = require('./routes/quotes');
 
 db();
 
-middleware(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -1,4 +1,4 @@
-var generateController = require('../utils/generateController');
-var userModel = require('../models/user');
+// var generateController = require('../utils/generateController');
+// var userModel = require('../models/user');
 
-module.exports = generateController(userModel);
+// module.exports = generateController(userModel);

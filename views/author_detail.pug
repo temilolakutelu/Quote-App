@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+  h1 Author: #{author.name}
+  p #{author.lifespan}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Quotes
+    
+    dl
+      each quote in author_quotes
+        dt 
+          a(href=quote.url) #{quote.category}
+        dd #{quote.content}
+
+      else
+        p This author has no quotes.
+    
+    hr
+    p
+      a(href=author.url+'/delete') Delete author
+    p
+      a(href=author.url+'/update') Update author

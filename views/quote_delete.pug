@@ -1,0 +1,47 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{quote.category}
+  
+  p #[strong Author:] 
+    a(href=quote.author.url) #{quote.author.name}
+  p #[strong Summary:] #{quote.content}
+ 
+  p #[strong Category:] 
+    each val in quote.category
+      a(href=val.url) #{val.name}
+      |, 
+
+  hr
+  
+  if quote_instances.length
+  
+    p #[strong Delete the following copies before attempting to delete this Quote.]
+  
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 Copies
+    
+        each quote_copy in quote_instances
+          hr
+          if quote_copy.status=='Available'
+            p.text-success #{quote_copy.status}
+          else if quote_copy.status=='Maintenance'
+            p.text-danger #{quote_copy.status}
+          else
+            p.text-warning #{quote_copy.status} 
+          p #[strong Imprint:] #{quote_copy.imprint}
+          if quote_copy.status!='Available'
+            p #[strong Due back:] #{quote_copy.due_back}
+          p #[strong Id:] 
+            a(href=quote_copy.url) #{quote_copy._id}
+
+  else
+    p Do you really want to delete this Quote?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#id.form-control(type='hidden',name='id', required='true', value=quote._id )
+
+      button.btn.btn-primary(type='submit') Delete

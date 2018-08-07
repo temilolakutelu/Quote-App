@@ -1,10 +1,9 @@
-var express = require('express')
-var quotes = require('../routes/quotes');
-var users = require('../routes/users');
+var express = require('express');
+var router = express.Router();
 
-var mainRouter = express.Router();
+// GET home page.
+router.get('/', function (req, res) {
+    res.redirect('/catalog');
+});
 
-mainRouter.use('/quotes', quotes);
-mainRouter.use('/users', users);
-
-module.exports = mainRouter;
+module.exports = router;

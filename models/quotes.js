@@ -1,15 +1,11 @@
 const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var ObjectId = mongoose.SchemaTypes.ObjectId;
+
 
 var QuoteSchema = new Schema({
-    category: String,
-    author: String,
-    content: String,
-    userId: {
-        type: ObjectId,
-        ref: 'Users'
-    }
+    category: { type: Schema.ObjectId, ref: 'Category' },
+    author: { type: Schema.ObjectId, ref: 'Author', required: true },
+    content: { type: String, required: true }
 })
 
 QuoteSchema

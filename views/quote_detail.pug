@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 #{title}: #{quote.category.name}
+  
+  p #[strong quote:] 
+    a(href=quote.author.url) #{quote.author.name}
+  p #[strong content:] #{quote.content}
+
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+   hr
+  p
+    a(href=quote.url+'/delete') Delete Quote
+  p
+    a(href=quote.url+'/update') Update Quote
+
